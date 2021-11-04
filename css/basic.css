@@ -1,0 +1,1006 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/*Navigation bar*/
+
+.bar {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80px;
+    width: 100%;
+}
+
+.navigation {
+    width: 300px;
+    height: 65px;
+    display: flex;
+    z-index: 12;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0, -100%);
+    transition: 0.5s;
+    background-color: rgba(78, 78, 78, 0.8);
+    border-radius: 0 0 10px 10px;
+}
+
+.options {
+    font-size: 2vw;
+    margin-right: 40px;
+    color: #ffffff;
+}
+
+.navigation a:last-child {
+    margin-right: 0;
+}
+
+.btn-nav {
+    width: 100px;
+    height: 50px;
+    background-color: rgba(78, 78, 78, 0.8);
+    z-index: 10;
+    transform: translate(0, -130%);
+    transition: 0.5s;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-nav #icon {
+    font-size: 2vw;
+}
+
+.hidde-menu {
+    transform: translate(0, 0);
+}
+
+
+/*Flipbook*/
+
+.fondo {
+    margin: 0;
+    height: 100vh;
+    background-image: url('../pics/fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.flipbook-viewport {
+    position: relative;
+    top: -80px;
+}
+
+.flipbook-viewport .container {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin: auto;
+}
+
+.flipbook-viewport .flipbook {
+    left: -600px;
+    top: 0!important;
+}
+
+.flipbook-viewport .page {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.flipbook-viewport .page img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+}
+
+.flipbook-viewport .shadow {
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -moz-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    transition: -ms-box-shadow 0.5s;
+    -webkit-box-shadow: 0 0 20px #ccc;
+    -moz-box-shadow: 0 0 20px #ccc;
+    -o-box-shadow: 0 0 20px #ccc;
+    -ms-box-shadow: 0 0 20px #ccc;
+    box-shadow: 0 0 20px #ccc;
+}
+
+.flipbook-viewport .page-wrapper {
+    -webkit-perspective: 2000px;
+    -moz-perspective: 2000px;
+    -ms-perspective: 2000px;
+    perspective: 2000px;
+}
+
+.flipbook-viewport .own-size {
+    background-color: white;
+    overflow: hidden;
+}
+
+.flipbook-viewport .even .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(0, 0, 0, 0.2)));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+    background-image: linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.flipbook-viewport .odd .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, right top, left top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(0, 0, 0, 0.15)));
+    background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+    background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+    background-image: -ms-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+    background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+    background-image: linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.divMagazine {
+    position: absolute;
+    width: 100%;
+    height: 100;
+}
+
+
+/*Buttons pagination*/
+
+.next-button,
+.previous-button {
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    top: 50%;
+    z-index: 1;
+    transform: translate(0, -50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.next-button:hover,
+.previous-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 40px;
+    -webkit-border-radius: 100px 0 0 100px;
+    -moz-border-radius: 100px 0 0 100px;
+    -ms-border-radius: 100px 0 0 100px;
+    -o-border-radius: 100px 0 0 100px;
+    border-radius: 100px 0 0 100px;
+    visibility: visible;
+}
+
+.next-button i,
+.previous-button i {
+    font-size: 2vw;
+}
+
+.previous-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 2px center;
+    background-size: 40px;
+    -webkit-border-radius: 0 100px 100px 0;
+    -moz-border-radius: 0 100px 100px 0;
+    -ms-border-radius: 0 100px 100px 0;
+    -o-border-radius: 0 100px 100px 0;
+    border-radius: 0 100px 100px 0;
+    visibility: hidden;
+}
+
+
+/*Boton audio y modal*/
+
+.audioBtnLink {
+    text-decoration: none;
+    margin-top: 1%;
+}
+
+.LeerMas,
+.containerBtnLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 5%;
+}
+
+.LeerMas img,
+.imgAudio {
+    width: 35px;
+    border-radius: 40px;
+    -webkit-box-shadow: 8px 16px 21px -10px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: 8px 16px 21px -10px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 10px 20px -12px rgba(0, 0, 0, 0.74);
+}
+
+.LeerMas p,
+.audioBtnLink p {
+    font-size: .8em;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.audioPage {
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+
+/*Modal*/
+
+.modal a {
+    padding: 0px 10px;
+    float: right;
+}
+
+.blocker {
+    z-index: 5!important;
+}
+
+.modal h2 {
+    padding: 0 20px;
+}
+
+.modal-p {
+    overflow-y: auto;
+    height: 450px;
+    padding: 0 20px;
+}
+
+.modal-p p {
+    font-size: 1vw;
+    line-height: 1.5vw;
+    text-align: justify;
+}
+
+
+/*thumbnails*/
+
+.head-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid #d6d6d6;
+    margin-bottom: 10px;
+}
+
+.head-modal .tittle {
+    font-size: 2vw;
+    font-weight: bold;
+    margin-left: 12px;
+    width: 80%;
+}
+
+.close-modal a {
+    color: #000;
+}
+
+.head-modal .close-modal {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+.close-modal i {
+    font-size: 2vw;
+}
+
+.gallery {
+    max-width: 1000px;
+    max-height: 370px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.gallery td {
+    background-color: #fff;
+    width: unset;
+    height: unset;
+    padding: unset;
+    border: unset;
+    position: unset;
+}
+
+.table-thum {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    border-collapse: unset;
+}
+
+tr .fila-thum td {
+    padding-bottom: 10px;
+}
+
+.pag {
+    display: inline-block;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+}
+
+.leftThumb {
+    right: 5px;
+}
+
+.afd {
+    float: right;
+    position: relative;
+}
+
+.pag-number {
+    position: absolute;
+    padding: 3px;
+    padding-left: 8px;
+    background-color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.number-right {
+    bottom: 0;
+    right: 0;
+}
+
+.number-left {
+    bottom: 0;
+    left: 0;
+}
+
+.fila-thum .doublePageDer {
+    float: left;
+}
+
+.fila-thum .doublePageIzq {
+    float: right;
+    margin-right: 5px;
+}
+
+.ain {
+    position: relative;
+    float: left;
+}
+
+.rightThumb {
+    left: 5px;
+}
+
+.modal a.close-modal {
+    display: none !important;
+}
+
+.imgThumb {
+    width: 120px;
+    height: 150px;
+}
+
+.imgThumb:hover {
+    cursor: pointer;
+}
+
+.modal {
+    padding: 10px 10px !important;
+    max-width: 50% !important;
+}
+
+#hiddenPag {
+    display: none;
+}
+
+.spacePages {
+    padding: 5px !important;
+}
+
+.fila-thum:last-child .doublePageDer .afd {
+    display: none;
+}
+
+
+/*Search*/
+
+.search-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-search {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-left: 20px;
+}
+
+.input-search .input {
+    margin-right: 10px;
+}
+
+.input a {
+    padding: 0;
+    color: #000;
+}
+
+.input a .lupa {
+    font-size: 25px;
+}
+
+.input-search input {
+    width: 200px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.search-head .tittle {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.search-head .close-modal {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+.contentSearch {
+    height: 450px !important;
+    background: #ffffff;
+}
+
+.contentSearchMovile {
+    height: 1000px !important;
+}
+
+.p-tdSearch {
+    padding: 10px 20px;
+    border-bottom: 1px solid #d6d6d6;
+    cursor: pointer;
+}
+
+.p-search {
+    font-size: 17px;
+}
+
+.b-trSearch:hover {
+    background-color: #f3f3f3;
+}
+
+.modalSearch {
+    top: 15%;
+    position: absolute !important;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+#resultado td {
+    width: unset;
+    background-color: unset;
+}
+
+#resultado span {
+    position: unset;
+}
+
+#resultado h1 {
+    text-align: start;
+    font-weight: 300;
+}
+
+
+/*Loader*/
+
+.containerLoader {
+    background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    transition: all 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader,
+.loader::before,
+.loader::after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation: loader 1.5s infinite ease-in-out;
+}
+
+.loader {
+    color: #ffffff;
+    font-size: 13px;
+    position: relative;
+    animation-delay: -0.16s;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader::before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+}
+
+.loader::after {
+    left: 3.5em;
+}
+
+@keyframes loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+
+/*Imgs*/
+
+.img-gallery {
+    width: 70%;
+    cursor: pointer;
+    display: block;
+    margin: auto !important;
+}
+
+.imgShow {
+    background-color: unset;
+    box-shadow: unset;
+    max-width: 70%;
+}
+
+.piedePagina {
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.closeImgs {
+    width: 100%;
+    height: 30px;
+}
+
+.closeIcon {
+    font-size: 35px;
+    color: #fff;
+}
+
+
+/*tittles*/
+
+h1 {
+    font-size: 1.5vw;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5vw;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.textResaltado {
+    font-size: .85em;
+    padding: 5px 24px;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.textBiblico {
+    font-size: .85em;
+    display: flex;
+    padding: 5px 45px;
+    text-align: justify;
+    font-family: 'Belgrano', serif;
+}
+
+span {
+    font-weight: bold;
+}
+
+.bxs-quote-alt-left {
+    font-size: 25px;
+}
+
+
+/*Modal Games*/
+
+#gameModal {
+    display: flex;
+}
+
+.message {
+    margin: 47px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.message span {
+    font-size: 37px;
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+/*Numbers of the pages*/
+
+.pagesMagazine {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    font-size: .85em;
+    margin: 45px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pagesMagazine:hover {
+    background-color: #afafafb6;
+    color: #ffffff;
+}
+
+.even .pagesMagazine {
+    left: 0;
+}
+
+.odd .pagesMagazine {
+    right: 0;
+}
+
+.even .numberPage,
+.odd .numberPage {
+    position: absolute;
+    left: 0;
+}
+
+.even .datePage,
+.odd .datePage {
+    margin-left: 28px;
+}
+
+.datePage,
+.numberPage,
+.spaceDate {
+    font-weight: 300;
+}
+
+.even .spaceDate,
+.odd .spaceDate {
+    position: absolute;
+    left: 20px;
+}
+
+
+/*Tabla de contenido*/
+
+.ul-containerTable {
+    padding: 20px 60px;
+}
+
+.li-tablecontent {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+    line-height: 4vh;
+}
+
+.li-tablecontent:hover {
+    background-color: #f3f3f3;
+}
+
+.containerTable {
+    vertical-align: middle;
+}
+
+.containerTable h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: .8vw;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+.containerPage {
+    font-size: .8vw;
+    font-family: sans-serif;
+}
+
+
+/*Tooltip*/
+
+.photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    padding-left: 10px;
+}
+
+.tooltip {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: #000;
+}
+
+.tooltip div {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contentPhoto {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.tooltip div p {
+    margin: 0;
+    font-size: .85em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tooltiptext {
+    position: relative;
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -1250%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltipBig {
+    bottom: -770% !important;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    transform: rotate(180deg);
+    top: -9%;
+    left: 45%;
+    margin-left: -5px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.profilePhoto {
+    width: 300px;
+    height: 300px;
+}
+
+.tooltip div:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.textAuthor {
+    position: absolute;
+    bottom: 7%;
+    left: 0;
+    right: 0;
+}
+
+
+/*Tittle of the section*/
+
+.div-section {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.odd .div-section {
+    justify-content: flex-end;
+}
+
+.even .div-section {
+    justify-content: flex-start;
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.name-section {
+    background-image: linear-gradient(to right, #fde7c0 25%, #b8732b 100%);
+    color: #000000;
+}
+
+.p51 .name-section {
+    background: #517178e3;
+}
+
+.name-section h3 {
+    font-size: .7em;
+    padding: 6px 8px 8px 6px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.iconSection {
+    width: 5vw;
+    margin-right: 10px !important;
+}
+
+
+/*Center labels span*/
+
+.centerSpan {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Bacground Jesús fuente de agua viva*/
+
+.p50 {
+    background-image: url(/pics/FuenteAgua.gif) !important;
+    background-size: 217% 137% !important;
+    background-position-x: 8%;
+}
+
+.p51 .textResaltado {
+    width: 51%;
+    padding: 0 0 0 14px;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+.p51 .LeerMas {
+    position: fixed;
+    right: 41%;
+}
+
+.p50 .textBiblico {
+    width: 61%;
+    position: absolute;
+    top: 45vh;
+    padding: 10px 18px 10px 36px;
+    background-color: #ffffffa8;
+}
+
+.p50 .pagesMagazine,
+.p51 .pagesMagazine {
+    color: #ffffff;
+}
+
+.p51 {
+    background-image: url(/pics/FuenteAgua.gif) !important;
+    background-size: 217% 137% !important;
+    background-position-x: 93%;
+}
+
+
+/*Mapa Interactivo*/
+
+.containerMap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.pinLink {
+    position: absolute;
+}
+
+.mapaImg {
+    width: 93%;
+    height: 90vh;
+}
+
+.distritoPhoto {
+    width: 400px;
+    height: 220px;
+}
+
+.tooltiptextDistrito {
+    position: relative;
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -1310%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltiptextDistrito::after {
+    content: "";
+    position: absolute;
+    transform: rotate(180deg);
+    top: -15%;
+    left: 45%;
+    margin-left: -5px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.pinLink:hover .tooltiptextDistrito {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*Comillas texto biblico*/
+
+.quotesTop img,
+.quotesBottom img {
+    width: 2em;
+    padding: 0px 4px;
+}
+
+.quotesBottom {
+    margin-top: 7px;
+}
