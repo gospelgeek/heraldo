@@ -8,7 +8,7 @@
        var element = $('<div />', {});
        var date = 'Noviembre 2021'
        if (book.turn('addPage', element, page)) {
-           if (page != 1 && page != 62) { element.append('<div class="gradient"><div class="pagesMagazine" id="pagesMagazine" onclick="goPage(' + 2 + ')"> <div class="datePage">' + date + '</div> <div class="spaceDate">|</div> <div class="numberPage">' + (page - 1) + '</div></div></div>') }
+           if (page != 1 && page != 65) { element.append('<div class="gradient"><div class="pagesMagazine" id="pagesMagazine" onclick="goPage(' + 2 + ')"> <div class="datePage">' + date + '</div> <div class="spaceDate">|</div> <div class="numberPage">' + (page - 1) + '</div></div></div>') }
            element.css({ 'background-image': 'url("pages/' + page + '.png")' });
            $.getJSON('json/pages.json').done(function(data) {
                $.each(data, function(key, region) {

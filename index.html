@@ -97,8 +97,34 @@
     <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script>
+        var numberPages = 65;
+        var output = [];
+
+        function dynamicCharge(){
+            page1 = {
+                "page" : input[i],
+                "background": './pages/1.png',
+                "id": "hiddenPag",
+                "pageContent": [{}]            
+            };
+            output.push(page1);           
+            for(let i = 2; i < numberPages; i++){
+                tmp = {
+                    "page" : input[i],
+                    "background": `./pages/${i}.png`,
+                    "pageContent": [{}]            
+                };
+                output.push(tmp);
+              }
+              console.log("Test");
+              console.log(output);
+              
+        }
+    </script>
+    <script>
+
         $(window).load(function() {
-            $(".containerLoader").delay(500).fadeOut("slow")
+            $(".containerLoader").delay(500).fadeOut("slow")   
         })
     </script>
     <script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
@@ -110,6 +136,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script type="text/javascript ">
+
         function loadApp() {
             var book = $(this),
                 currentPage = book.turn('page'),
@@ -125,7 +152,7 @@
                 autoCenter: true,
                 duration: 1000,
                 acceleration: true,
-                pages: 62,
+                pages: 65,
                 when: {
                     turning: function(event, page, view) {
                         if (navigator.cookieEnabled == true) {

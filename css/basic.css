@@ -639,9 +639,11 @@ h2 {
 
 .textBiblico {
     font-size: .85em;
+    float: left;
+    column-count: 3;
     display: flex;
     padding: 5px 45px;
-    text-align: justify;
+    text-align: right;
     font-family: 'Belgrano', serif;
 }
 
